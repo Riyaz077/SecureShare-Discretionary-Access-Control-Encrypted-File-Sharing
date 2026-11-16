@@ -101,3 +101,14 @@ Add these environment variables in Render (never commit their values):
 - `FLASK_DEBUG`: `0`
 
 **Important demo limitation:** this app stores its SQLite database, encryption key fallback, and encrypted uploads in the local `data/` directory. Render's default filesystem is ephemeral, so accounts, uploaded files, and the locally generated key can be lost on restart, spin-down, or redeploy. The free Render web service does not support persistent disks. Treat a free deployment as a public demonstration only; do not upload sensitive documents or rely on data persistence. For durable use, migrate the database and file storage to persistent managed services, or use an eligible paid service with a persistent disk mounted at the data path and configure the app to use it.
+
+## License
+This project is available for educational and portfolio demonstration purposes. A formal open-source license can be added separately if the repository owner chooses to distribute the project under specific licensing terms.
+
+## **Author**
+
+**Mohamed Riyaz S.**  
+Integrated M.Tech, Computer Science and Engineering (Business Analytics)  
+Vellore Institute of Technology (VIT), Chennai
+
+Designed, developed, and implemented this project as part of my technical portfolio, combining web application development, artificial intelligence, machine learning, and business analytics.
