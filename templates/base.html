@@ -1,19 +1,112 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{ title or 'SecureShare' }}</title><link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"></head><body><nav class="nav"><a class="brand" href="{{ url_for('index') }}"><span class="brand-icon">S</span> SecureShare</a><div class="nav-links">{% if session.get('user_id') %}<a href="{{ url_for('dashboard') }}">Dashboard</a><a href="{{ url_for('audit') }}">Audit trail</a><span class="user">{{ session.get('username') }}</span><a class="nav-cta" href="{{ url_for('logout') }}">Sign out</a>{% else %}<a href="{{ url_for('login') }}">Sign in</a><a class="nav-cta" href="{{ url_for('register') }}">Get started</a>{% endif %}</div></nav><main class="container">{% with messages=get_flashed_messages(with_categories=true) %}{% for category,message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}{% endwith %}{% block content %}{% endblock %}</main><footer class="project-footer">
-    <div class="footer-project">
-        SecureShare – DAC Cybersecurity System
-    </div>
 
-    <div class="footer-label">Designed & Developed by</div>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <h2 class="footer-name">Mohamed Riyaz S.</h2>
+    <title>{{ title or 'SecureShare' }}</title>
 
-    <div class="footer-degree">
-        Integrated M.Tech CSE | Business Analytics
-    </div>
+    <!-- SecureShare Browser Favicon -->
+    <link rel="icon" type="image/png"
+          href="{{ url_for('static', filename='secureshare-logo.png') }}">
 
-    <div class="footer-university">VIT Chennai</div>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
 
-    <div class="footer-bottom">
-        © 2026 Mohamed Riyaz S. | All Rights Reserved
-    </div>
-</footer></body></html>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="nav">
+
+        <a class="brand" href="{{ url_for('index') }}">
+            <img
+                src="{{ url_for('static', filename='secureshare-logo.png') }}"
+                alt="SecureShare Logo"
+                class="brand-logo"
+            >
+            <span>SecureShare</span>
+        </a>
+
+        <div class="nav-links">
+
+            {% if session.get('user_id') %}
+
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('audit') }}">Audit trail</a>
+
+                <span class="user">
+                    {{ session.get('username') }}
+                </span>
+
+                <a class="nav-cta" href="{{ url_for('logout') }}">
+                    Sign out
+                </a>
+
+            {% else %}
+
+                <a href="{{ url_for('login') }}">Sign in</a>
+
+                <a class="nav-cta" href="{{ url_for('register') }}">
+                    Get started
+                </a>
+
+            {% endif %}
+
+        </div>
+    </nav>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% for category, message in messages %}
+
+                <div class="flash {{ category }}">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="project-footer">
+
+        <div class="footer-project">
+            SecureShare – DAC Cybersecurity System
+        </div>
+
+        <div class="footer-label">
+            Designed &amp; Developed by
+        </div>
+
+        <h2 class="footer-name">
+            Mohamed Riyaz S.
+        </h2>
+
+        <div class="footer-degree">
+            Integrated M.Tech CSE | Business Analytics
+        </div>
+
+        <div class="footer-university">
+            VIT Chennai
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Mohamed Riyaz S. | All Rights Reserved
+        </div>
+
+    </footer>
+
+</body>
+</html>
