@@ -1,0 +1,14 @@
+SECURESHARE STREAMLIT EDITION
+
+1. Extract this ZIP.
+2. Open the extracted folder in VS Code.
+3. Open Terminal > New Terminal.
+4. Run:
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   streamlit run app.py
+   (or: python run.py)
+5. Open http://localhost:8501
+
+Do not run python run.py or python app.py. Start the app with: streamlit run app.py
